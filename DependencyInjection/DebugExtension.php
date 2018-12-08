@@ -41,6 +41,9 @@ class DebugExtension extends Extension
             ->addMethodCall('setMinDepth', array($config['min_depth']))
             ->addMethodCall('setMaxString', array($config['max_string_length']));
 
+        $container->getDefinition('var_dumper.html_dumper')
+            ->addMethodCall('setTheme', array($config['html_dumper_theme']));
+
         if (null === $config['dump_destination']) {
             $container->getDefinition('var_dumper.command.server_dump')
                 ->setClass(ServerDumpPlaceholderCommand::class)

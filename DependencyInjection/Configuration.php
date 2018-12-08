@@ -50,6 +50,12 @@ class Configuration implements ConfigurationInterface
                     ->example('php://stderr, or tcp://%env(VAR_DUMPER_SERVER)% when using the "server:dump" command')
                     ->defaultNull()
                 ->end()
+                ->enumNode('html_dumper_theme')
+                    ->info('Changes the color of the dump() output when rendered directly on the templating. "dark" (default) or "light"')
+                    ->example('"dark"')
+                    ->values(array('dark', 'light'))
+                    ->defaultValue('dark')
+                ->end()
             ->end()
         ;
 
