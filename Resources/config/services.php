@@ -52,6 +52,7 @@ return static function (ContainerConfigurator $container) {
                 param('kernel.charset'),
                 service('.virtual_request_stack'),
                 null, // var_dumper.cli_dumper or var_dumper.server_connection when debug.dump_destination is set
+                param('kernel.runtime_mode.web'),
             ])
             ->tag('data_collector', [
                 'id' => 'dump',
